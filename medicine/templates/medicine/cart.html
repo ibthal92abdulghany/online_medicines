@@ -1,0 +1,39 @@
+{% extends 'base.html' %} 
+{% block title %}
+<title>Cart</title>
+{% endblock title %}
+{% load static %}
+
+{% block content %}
+{% if cart_list %}
+{% for c in cart_list %}
+{% if c.username == user %}
+<a style="margin-left: 40%;" href="{% url 'medicine:order' %}">
+  My Orders
+</a>
+
+<div class="del" style="margin-left: 40%;">
+  <img src="{{c.medicine.thumb.url}}" >
+  <h3 style="margin-right: 77%;" >Name:</h3>{{c.medicine.name}}
+  <h4>Quantity:</h4>{{c.c_quantity}}
+  <h4>Price:EGP</h4>{{c.total_price}}
+  <div class="btn_container"> 
+      <a href="{{ c.updateCart }}">
+        Update
+      </a>
+      <a href="{{ c.deleteCart }}">
+          Delete
+        </a>
+        <a href="{% url 'medicine:checkout' %}">
+          CheckOut
+        </a>
+  </div>
+</div>
+{% endif %}
+
+{% endfor %}
+{% endif %}
+<h3> <a style="margin-left: 40%;" href="{% url 'medicine:medicine_list' %}">
+  Go To Shop
+</a></h3>
+{% endblock content %}
