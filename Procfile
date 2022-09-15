@@ -1,1 +1,1 @@
-web: gunicorn ONLINE MEDICINE.wsgi 
+web: gunicorn root.wsgi 
