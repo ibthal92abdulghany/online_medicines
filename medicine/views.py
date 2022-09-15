@@ -35,8 +35,8 @@ class AddToCartView(LoginRequiredMixin, DetailView, FormView):
         user_ex = Cart.objects.filter(username=self.request.user.id).exists()
         med_data = Cart.objects.filter(medicine=ob.id).values('medicine_id')
         user_data = Cart.objects.filter(username=self.request.user.id).values('medicine_id')
-        med_id_user = user_data[0]['medicine_id']
-        med_id_med = med_data[0]['medicine_id']
+       #med_id_user = user_data[0]['medicine_id']
+        #med_id_med = med_data[0]['medicine_id']
         q = cl['quantity']
         p = 0
        

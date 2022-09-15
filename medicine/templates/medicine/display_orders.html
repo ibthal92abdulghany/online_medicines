@@ -7,10 +7,12 @@
 {%load static}
 <link href="{% static 'css/med.css' %}" rel="stylesheet" />
 
+{% block content %}
+
 {% if order_list %}
 {% for order in order_list %}
 {% if user == order.username %}
-<div class="det">
+<div class="del" style="margin-left: 40%;">
     <img src="{{ order.cart.medicine.thumb.url }}" >
 
 
@@ -23,8 +25,8 @@
 {% endif %}    
 {% endfor %}
 {% else %}
-<h3>No Orders
-<h4> <a href="{% url 'medicine:medicine_list' %}">
+<h4>No Orders</h4>
+<h3> <a href="{% url 'medicine:medicine_list' %}">
     Go To Shop
   </a></h3>
 {% endif %}
